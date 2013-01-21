@@ -9,6 +9,7 @@ The Elastic IP will be placed in the user data section of your instance to make 
 # How to configure your instance to run with the script
 
 in your console, start the "launch instance" wizard.
+![screenshot](https://raw.github.com/pierreg256/eip/master/images/console.png)
 
 # How to install your script #
 
