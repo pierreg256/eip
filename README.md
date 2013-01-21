@@ -24,7 +24,7 @@ Connect to your instance :
     $ ssh ec2-user@ec2-12-34-56-78.eu-west-1.compute.amazonaws.com
   
 
-Clone the repo containing the script
+Clone the repo containing the script. *Note*: you may need to install git with : ```sudo yum install git -y```
 
     $ git clone https://github.com/pierreg256/eip.git
 
