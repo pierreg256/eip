@@ -42,6 +42,26 @@ make sure your script is executable
     $ cd /home/ec2-user/eip
     $ chmod +x auto-ip.sh
     
+Now, get back to your console, stop your instance and open the "View/Change User Data" dialog box.
+![screenshot](https://raw.github.com/pierreg256/eip/master/images/changeuserdata.png)
+
+Add the following in your user data: 
+        elastic-ip=<YOUR_EIP>|region=<EC2_REGION>|hostname=<DESIRED_HOSTNAME>
+Where : 
+* ```YOUR_EIP``` : is the Elastic IP you already allocated
+* ```EC2_REGION``` : is the region where your EC2 instance is running
+* ```DESIRED_HOSTNAME``` : _optional_ the hostname you want your machine to take at boot time. If no hostanme is given, then the default hostame provided by Amazon will be kept.
+
+one example would be:
+
+    elastic-ip=12.34.56.78|region=eu-west-1|hostname=my-host
+
+
+Now, restart your machine and see the magic happen ;-)
+
+# Troubleshooting #
+The script logs each execution in a file called ```/tmp/auto-ip.log``` Please, check that log file to see if any execution error detail.
+
 
 # Author #
 
