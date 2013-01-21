@@ -46,15 +46,14 @@ Now, get back to your console, stop your instance and open the "View/Change User
 ![screenshot](https://raw.github.com/pierreg256/eip/master/images/changeuserdata.png)
 
 Add the following in your user data: 
-        elastic-ip=<YOUR_EIP>|region=<EC2_REGION>|hostname=<DESIRED_HOSTNAME>
+        elastic-ip=<YOUR_EIP>|region=<EC2_REGION>
 Where : 
 * ```YOUR_EIP``` : is the Elastic IP you already allocated
 * ```EC2_REGION``` : is the region where your EC2 instance is running
-* ```DESIRED_HOSTNAME``` : _optional_ the hostname you want your machine to take at boot time. If no hostanme is given, then the default hostame provided by Amazon will be kept.
 
 one example would be:
 
-    elastic-ip=12.34.56.78|region=eu-west-1|hostname=my-host
+    elastic-ip=12.34.56.78|region=eu-west-1
 
 
 Now, restart your machine and see the magic happen ;-)
