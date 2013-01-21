@@ -17,6 +17,12 @@ echo "Instance ID  : $INSTANCE_ID" > $LOG
 echo "Elatsic IP   : $ELASTIC_IP" >> $LOG
 echo "Access Key   : $ACCESS_KEY" >> $LOG
 echo "Secret Key   : $SECRET_KEY" >> $LOG
+echo "Host Name    : $ELASTIC_HOSTNAME" >> $LOG
+
+if [ -n "$ELASTIC_HOSTNAME" ]
+then
+	sudo hostname "$ELASTIC_HOSTNAME" >> $LOG 2>&1
+fi
 
 /opt/aws/bin/ec2-associate-address --region $REGION --instance $INSTANCE_ID $ELASTIC_IP >> $LOG 2>&1
 
