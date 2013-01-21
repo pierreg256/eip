@@ -30,7 +30,7 @@ Clone the repo containing the script. *Note*: you may need to install git with :
 
 Add a call to the script in your startup script sequence. For that open the rc.local script
 
-    $ cd /etc.rc.d
+    $ cd /etc/rc.d
     $ sudo vi rc.local
     
 and add the following line : 
