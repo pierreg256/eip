@@ -11,6 +11,12 @@ The Elastic IP will be placed in the user data section of your instance to make 
 in your console, start the "launch instance" wizard.
 ![screenshot](https://raw.github.com/pierreg256/eip/master/images/console.png)
 
+while in the wizard, be sure to add a role to your instance. Beware, the role must have sufficient admin rights to call the ec2 command line tools.
+![screenshot](https://raw.github.com/pierreg256/eip/master/images/roleselection.png)
+
+finally, finish your wizard and start your machine. Once started, jump to the next section to install the script and configure it correctly.
+
+
 # How to install your script #
 
 Connect to your instance : 
