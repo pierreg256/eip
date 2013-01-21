@@ -1,5 +1,7 @@
 #!/bin/bash
 
+LOG=/tmp/auto-eip.log
+
 ROLE=$(curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/)
 CREDENTIALS=$(curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/${ROLE})
 ACCESS_KEY=$(curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/${ROLE} | grep AccessKeyId | sed -e "s/.*\"AccessKeyId\" : \"//g" | sed -e "s/\",$//g")
@@ -11,12 +13,12 @@ ELASTIC_IP=$(echo $USERDATA | awk 'BEGIN{RS="|";FS="="} /elastic-ip/ {print $2}'
 ELASTIC_HOSTNAME=$(echo $USERDATA | awk 'BEGIN{RS="|";FS="="} /hostname/ {print $2}')
 REGION=$(echo $USERDATA | awk 'BEGIN{RS="|";FS="="} /region/ {print $2}')
 
-echo "Instance ID  : $INSTANCE_ID" > /tmp/pierre.log
-echo "Elatsic IP   : $ELASTIC_IP" >> /tmp/pierre.log
-echo "Access Key   : $ACCESS_KEY" >> /tmp/pierre.log
-echo "Secret Key   : $SECRET_KEY" >> /tmp/pierre.log
+echo "Instance ID  : $INSTANCE_ID" > $LOG
+echo "Elatsic IP   : $ELASTIC_IP" >> $LOG
+echo "Access Key   : $ACCESS_KEY" >> $LOG
+echo "Secret Key   : $SECRET_KEY" >> $LOG
 
-/opt/aws/bin/ec2-associate-address --region $REGION --instance $INSTANCE_ID $ELASTIC_IP >> /tmp/pierre.log 2>&1
+/opt/aws/bin/ec2-associate-address --region $REGION --instance $INSTANCE_ID $ELASTIC_IP >> $LOG 2>&1
 
 RES=$?
-echo "the result is : $RES" >> /tmp/pierre.log
+echo "the result is : $RES" >> $LOG
