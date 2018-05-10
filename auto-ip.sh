@@ -14,7 +14,7 @@ ELASTIC_HOSTNAME=$(echo $USERDATA | awk 'BEGIN{RS="|";FS="="} /hostname/ {print 
 REGION=$(echo $USERDATA | awk 'BEGIN{RS="|";FS="="} /region/ {print $2}')
 
 echo "Instance ID  : $INSTANCE_ID" > $LOG
-echo "Elatsic IP   : $ELASTIC_IP" >> $LOG
+echo "Elastic IP   : $ELASTIC_IP" >> $LOG
 echo "Access Key   : $ACCESS_KEY" >> $LOG
 echo "Secret Key   : $SECRET_KEY" >> $LOG
 echo "Host Name    : $ELASTIC_HOSTNAME" >> $LOG
